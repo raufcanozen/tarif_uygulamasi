@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tarifapp.controllers.MainPageUIController">
+    <!-- Arama Çubuğu ve Filtre Alanı -->
+    <HBox spacing="10">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <TextField fx:id="searchField" promptText="Tarif ara..." HBox.hgrow="ALWAYS"/>
+        <Button text="Search" onAction="#handleSearch"/>
+
+        <Label text="Malzeme Seçimi" />
+        <ListView fx:id="ingredientListView" onMouseClicked="#handleIngredientSelection"
+                  minHeight="30" maxHeight="50" />
+        <Button text="Ara" onAction="#handleIngredientSearch" />
+
+
+    </HBox>
+
+    <!-- Menü ve Listeleme Alanı -->
+    <HBox spacing="20">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <!-- Sol Menü -->
+        <VBox spacing="10">
+            <Button text="Tarif Ekle" onAction="#handleAddRecipe"/>
+            <Button text="Tarif Güncelle" onAction="#handleUpdateRecipe"/>
+            <Button text="Tarif Sil" onAction="#handleDeleteRecipe"/>
+        </VBox>
+
+        <!-- Tarif Listesi -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="Tarif Listesi"/>
+            <ListView fx:id="recipeList" onMouseClicked="#handleRecipeSelected"/>
+        </VBox>
+    </HBox>
+
+    <!-- Tarif Detayları Alanı -->
+    <HBox spacing="10">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <Label text="Tarif Detayları"/>
+        <TextArea fx:id="recipeDetails" editable="false" prefRowCount="7"/>
+    </HBox>
+
+    <!-- Sıralama ve Filtreleme Alanı -->
+    <HBox spacing="10">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <ComboBox fx:id="sortComboBox" promptText="Sırala.." onAction="#handleSortRecipes"/>
+        <ComboBox fx:id="filterCategory" promptText="Kategoriye Göre Filtrele..." onAction="#handleFilter"/>
+        <ComboBox fx:id="filterIngredients" promptText="Malzeme Sayısına Göre Filtrele..." onAction="#handleFilter"/>
+        <ComboBox fx:id="filterCost" promptText="Maliyet Aralığına Göre Filtrele..." onAction="#handleFilter"/>
+        <Button text="Filtreleri Kaldır" onAction="#handleClearFilters"/> <!-- Filtreleri kaldırma butonu -->
+    </HBox>
+</VBox>

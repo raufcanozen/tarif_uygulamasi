@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tarifapp.controllers.TarifDialogController">
+    <content>
+        <VBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Malzemeler"/>
+            <ComboBox fx:id="ingredientComboBox" promptText="Mevcut Malzemeleri Seç..."/>
+            <Label text="Malzeme Miktarı" />
+            <TextField fx:id="quantityField" promptText="Miktar girin"/>
+            <Button text="Malzeme Ekle" onAction="#handleAddIngredient"/> <!-- Malzeme ekleme butonu -->
+
+            <Button text="Yeni Malzeme Ekle" onAction="#handleAddNewIngredient"/> <!-- Malzeme ekleme butonu -->
+
+
+            <ListView fx:id="ingredientListView" prefHeight="100"/> <!-- Malzeme listesini göstermek için ListView -->
+
+            <TextField fx:id="nameField" promptText="Tarif Adı"/>
+            <TextField fx:id="categoryField" promptText="Kategori"/>
+            <TextField fx:id="preparationTimeField" promptText="Hazırlama Süresi (dakika)"/>
+            <TextArea fx:id="instructionsField" promptText="Talimatlar" prefRowCount="4"/>
+
+        </VBox>
+    </content>
+</DialogPane>
